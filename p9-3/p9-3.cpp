@@ -6,15 +6,28 @@ void displayRun(int values[], int size);
 bool hasRun(int values[], int size);
 
 int main() {
-	const int SIZE = 10;
-	int array[SIZE] = {5, 10, 15, 20, 25, 30, 35, 40, 45, 55};
-	if(hasRun(array, SIZE)) {
-		displayRun(array, SIZE);
-	} else {
-		cout << "The array does not have a run." <<  endl;
+	const int SIZE = 20;
+	int array[SIZE];
+
+	srand(time(0));
+
+	while (true) {
+		for (int i = 0; i < SIZE; i++) {
+			array[i] = rand() % 6 + 1;
+		}
+
+		if (hasRun(array, SIZE)) {
+			cout << "has run: ";
+			displayRun(array, SIZE);
+			return 0;
+		}
+		else {
+			cout << "no run: ";
+			displayRun(array, SIZE);
+			cout << endl;
+			
+		}
 	}
-	
-	return 0;
 }
 
 void displayRun(int values[], int size) {
